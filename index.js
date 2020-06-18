@@ -178,6 +178,7 @@ class Student extends Lambdasian{
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
     this.grade = 50;
+    this.graduateReady = false;
   }
   listSubjects(){
     return `Loving ${this.favSubjects}`
@@ -190,9 +191,10 @@ class Student extends Lambdasian{
   }
   graduate(){
     if(this.grade > 70){
+      this.graduateReady = true;
       return `${this.name} is ready to graduate with a grade of ${this.grade}!!! 🎓`
     } else {
-      Instructor.gradeAssignment(this);
+      Instructor[0].gradeAssignment(this);
       this.graduate();
       }
     }
@@ -234,6 +236,9 @@ class ProjectManager extends Instructor{
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+
+
+
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
